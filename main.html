@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MNNIT InternWorks</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container1">
+        <h1>Enhancing Lecture Capture with Deep Learning</h1>
+      </div>
+      <div class="container1">
+        <h2>Our Progress Report for now</h2>
+        <p>
+          As part of our project, we have made a little progress in enhancing
+          the lecture videos by trying to remove the lecturer and making the
+          entire visible.
+        </p>
+        <p>
+          Here are the key steps we have undertaken so far (as per our
+          understanding of the research paper provided by you) :
+        </p>
+        <ul style="list-style-type: none">
+          <li>
+            <h3>1) <u>Image Segmentation with Mask R-CNN</u></h3>
+            <p>
+              We have utilized a <b>pretrained model of Mask RCNN</b> to detect
+              and segment the lecturer in the video frames. This is right now
+              doing the <b>instance image segementation</b> of the frames. This
+              model has proven effective in accurately identifying the
+              lecturer's position within each frame.
+            </p>
+            <p>This generates a mask clip for the video frames as:</p>
+            <video width="512" controls>
+              <source src="clips/mask.mp4" type="video/mp4" />
+              <source src="movie.ogg" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
+            <p>
+              We overlap the mask with the original video frame and segemented
+              the lecturer as detected by the model.
+            </p>
+            <video width="512" controls>
+              <source src="clips/imageseg.mp4" type="video/mp4" />
+              <source src="movie.ogg" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
+          </li>
+          <li>
+            <h3>2) <u>Background Restoration</u></h3>
+            <p>
+              After segmenting the lecturer, we have implemented
+              <b>bitwise operations</b> to restore the background. This involves
+              using the previous frame where the background is already processed
+              and intact to overlap over the removed section of the current
+              video frame. We have taken help from the research paper that you
+              provided to implement this section.
+            </p>
+            <p>
+              Our output is not that satisfactory for now as you can see below:
+            </p>
+            <video width="512" controls>
+              <source src="clips/output.mp4" type="video/mp4" />
+              <source src="movie.ogg" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
+            <p>
+              This step is hoped to allow us to make the board fully visible,
+              thereby enhancing the overall clarity and usefulness of the
+              lecture videos. It is working partially as well and we are hoping
+              to improve it more towards perfection.
+            </p>
+            <p>
+              Hence, we are currently fine-tuning the process to improve the
+              accuracy and smoothness of the restored frames and we are
+              confident that the final output will be of high quality.
+            </p>
+          </li>
+          <li>
+            <h3><u>Improvements we are hoping to do</u></h3>
+            <p>
+              a) Implement the sementic segmentation inspite of instance
+              segementation using Fast-SCNN to reduce the load.
+            </p>
+            <p>
+              b) Train the model over some additional related dataset to get
+              better outcomes.
+            </p>
+            <p>c) Work over the audio vanishing.</p>
+          </li>
+          <li>
+            <h3><u>Source Code</u></h3>
+            <img src="clips/img1.png" alt="" width="700px" />
+            <img src="clips/img2.png" alt="" width="700px" />
+            <img src="clips/img3.png" alt="" width="700px" />
+            <img src="clips/img4.png" alt="" width="700px" />
+            <p>
+              We would appreciate any feedback or suggestions you may have to
+              further improve our approach. Please let us know id you would like
+              anything related to our work or if there is any specific areas you
+              would like us to focus on.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
